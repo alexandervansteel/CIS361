@@ -1,0 +1,21 @@
+Script started on Tue Jan 24 10:23:50 2017
+[?1034hbash-3.2$ ./lab1a [K.c[K[K
+Enter text (Ctrl-D to quit).
+Testing Testing       test2 #$% test$%^
+Testing test2 #$% test$%^
+^DWord Count: 3
+Symbol Count: 2
+bash-3.2$ ./lab1a < test.dat
+Enter text (Ctrl-D to quit).
+This is a test file. I am making a test file. Something & another thing * mod%.
+Word Count: 15
+Symbol Count: 5
+bash-3.2$ ./lab1a < test.dat > lab1a.out
+bash-3.2$ cat lab1a.out
+Enter text (Ctrl-D to quit).
+This is a test file. I am making a test file. Something & another thing * mod%.
+Word Count: 15
+Symbol Count: 5
+bash-3.2$ exit
+
+Script done on Tue Jan 24 10:25:07 2017
