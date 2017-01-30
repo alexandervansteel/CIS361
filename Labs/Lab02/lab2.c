@@ -35,7 +35,7 @@ int main () {
 	// Part two: processing a dynamically allocated array
 
   start = time(NULL);
-  int *dynamicArray = malloc(sizeof(int) * MaxSize); // declare and allocate array
+  int *dynamicArray = (int*)malloc(sizeof(int) * MaxSize); // declare and allocate array
   for (i=0; i<MaxSize; i++) { // initialize array
     dynamicArray[i] = 0;
   }
