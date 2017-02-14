@@ -9,70 +9,72 @@ struct Mark {
 typedef struct Mark Mark;
 
 /* load the structure that p points to with the date from f */
-void getInfo (FILE * f, Mark * p);
+void getInfo(FILE* f, Mark* p);
 
 /* write the data stored in structure item into output file f */
-void printInfo (FILE * f, Mark item);
+void printInfo(FILE* f, Mark item);
 
 /* compare what pointers a and b point to; to be used by qsort() */
-int compare (const void * a, const void * b);
+int compare(const void* a, const void* b);
 
-int main()
-{
+int main(){
 	Mark list[100];
 	Mark mark;
 	int size = 0, i, col = 0;
-	FILE * fin;
+	FILE *fin;
 
 	fin = fopen ("lab4.dat", "r");
-	if ( fin == NULL )
-	{
+	if (fin == NULL){
 		printf ("Cannot open file.\n");
 		exit(1);
 	}
 
-	while ( !feof(fin) )
-	{
+	while (!feof(fin)){
 		getInfo (fin, &mark);
 		list[size++] = mark;
 	}
 
 	// use qsort() to sort data in list
+  qsort(list, size, sizeof(Mark), compare);
 
-	for (i = 0; i < size; i++)
-	{
-		printInfo (stdout, list[i]);
-		if ( ++col % 5 == 0 )
+	for (i = 0; i < size; i++){
+		printInfo(stdout, list[i]);
+		if (++col % 5 == 0)
 			printf("\n");
 	}
+  printf("\n");
 
-	fclose (fin);
+	fclose(fin);
 
 	return 0;
 }
 
 /* complete the following helper functions */
 
-void getInfo (FILE * f, Mark * p)
-{
-	// read two integers from the input file and 
+void getInfo(FILE* f, Mark* p){
+	// read two integers from the input file and
 	// store them in the structure that p points to
-
+  fscanf(f, "%d %d\n", &p->x, &p->y);
 }
 
-void printInfo (FILE * f, Mark item)
-{
+void printInfo(FILE* f, Mark item){
 	// display each mark in format of (x, y)
 	// and five marks per line
-
+  fprintf(f, "(%d,%d) ", (int)item.x, (int)item.y);
 }
 
-int compare (const void * a, const void * b)
-{
+int compare(const void* a, const void* b){
 	// compare two structures
-	// return 0 if they are equal, a value less than 0 if the first 
-	// comes before the second, a value greater than 0 otherwise 
-	
+	// return  0 if ==
+  // return -1 if a < b
+	// return  1 if a > b
+  struct Mark *mark1 = (struct Mark*)a;
+  struct Mark *mark2 = (struct Mark*)b;
+
+  if (mark1->x != mark2->x){
+    return (int)mark1->x - (int)mark2->x;
+  } else {
+    return (int)mark1->y - (int)mark2->y;
+  }
+  return 0;
 }
-
-
