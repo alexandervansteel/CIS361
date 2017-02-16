@@ -7,3 +7,4 @@ test1:
 	./cipher 1 5 data.txt data.out
 test2:
 	./cipher 2 5 data.out data.bak
+	diff data.bak data.txt
