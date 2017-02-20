@@ -1,5 +1,7 @@
 // Project: 	Caesar Ciphers
-// Author:	Yonglei Tao
+// Source Code:	Yonglei Tao
+// Author: Alexander Vansteel
+// 2017 Feb 2016
 
 #include <ctype.h>
 #include <stdio.h>
