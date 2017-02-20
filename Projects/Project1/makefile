@@ -1,5 +1,5 @@
 cipher: cipher.o
-	gcc cipher.o -o cipher
+	gcc cipher.o -o cipher -lm
 cipher.o: cipher.c
 
 test: test1 test2

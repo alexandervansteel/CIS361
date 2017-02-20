@@ -82,7 +82,7 @@ char encrypt(char ch, int k){
 }
 
 // Load array given with the letter frequencies for English from file LetFreq.txt
-void readFreq (float given[], FILE* letFreq){
+void readFreq(float given[], FILE* letFreq){
   char str1[10], str2[10];
   int id = 0;
   //float freq = -1;
@@ -96,7 +96,7 @@ void readFreq (float given[], FILE* letFreq){
 
 // Read the encoded text from an input file and accumulate the letter frequency
 // data for the encoded text. Store the frequency data in array found.
-void calcFreq (float found[], FILE* datafile){
+void calcFreq(float found[], FILE* datafile){
   char c;
 
   int total = 0;
@@ -125,7 +125,7 @@ void calcFreq (float found[], FILE* datafile){
 
 // Rotate the character in parameter ch down the alphabet for the number of
 // positions as given in parameter num and return the resulting character.
-char rotate (char ch, int num){
+char rotate(char ch, int num){
   if(isupper(ch)){
     return ('A' + ((ch+num)-'A')%26);
   }
@@ -142,14 +142,14 @@ char rotate (char ch, int num){
 // for a key that will give you the best match. To do this, try each of the 26 rotations,
 // and remember which gives the smallest difference between the frequencies you
 // observed and the frequencies given. Return the key.
-int findKey (float given[], float found[]){
+int findKey(float given[], float found[]){
   int i, j, key;
   float curDif;
   float bestDif = 0.0;
   for(i = 0; i < 26; i++) {
     curDif = 0.0;
     for(j = 0; j < 26; j++) {
-      curDif += fabsf(given[(i+j)%26] - found[j]);
+      curDif += power((given[(i+j)%26] - found[j]), 2);
     }
     if(curDif < bestDif || i == 0){
       bestDif = curDif;
@@ -161,7 +161,7 @@ int findKey (float given[], float found[]){
 }
 
 // Decrypt the encoded text in the input file using the key and display the decoded text
-void decrypt (int key, FILE* input, FILE* output){
+void decrypt(int key, FILE* input, FILE* output){
   char c;
 
   while ((c = getc(input)) != EOF){

@@ -71,10 +71,10 @@ int compare(const void* a, const void* b){
   struct Mark *mark1 = (struct Mark*)a;
   struct Mark *mark2 = (struct Mark*)b;
 
-  if (mark1->x != mark2->x){
-    return (int)mark1->x - (int)mark2->x;
+  if (mark1->y != mark2->y){
+    return (int)mark2->y - (int)mark1->y;
   } else {
-    return (int)mark1->y - (int)mark2->y;
+    return (int)mark1->x - (int)mark2->x;
   }
   return 0;
 }
