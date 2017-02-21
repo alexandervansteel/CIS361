@@ -1,0 +1,58 @@
+Script started on Tue Feb 21 16:14:52 2017
+[?1034hbash-3.2$ gcc -Wall lab5.c -o lab5
+bash-3.2$ ./lab5 
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+Push to Stack.
+ERROR: PUSH -> Stack is full. Unable to PUSH.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+Pop from Stack.
+ERROR: POP -> Stack is empty, unable to POP.
+bash-3.2$ exit
+
+Script done on Tue Feb 21 16:15:14 2017
