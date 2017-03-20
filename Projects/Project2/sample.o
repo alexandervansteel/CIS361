@@ -1,0 +1,81 @@
+Identifier: include
+Line Numbers: 10 
+
+Identifier: stdio
+Line Numbers: 10 
+
+Identifier: h
+Line Numbers: 10 
+
+Identifier: define
+Line Numbers: 12 
+
+Identifier: MAX
+Line Numbers: 12 38 
+
+Identifier: struct
+Line Numbers: 14 20 22 24 26 28 30 32 38 
+
+Identifier: Book
+Line Numbers: 14 20 22 24 26 28 30 32 38 
+
+Identifier: int
+Line Numbers: 15 20 22 24 24 26 28 28 30 32 37 
+
+Identifier: code
+Line Numbers: 15 
+
+Identifier: float
+Line Numbers: 16 24 28 
+
+Identifier: price
+Line Numbers: 16 
+
+Identifier: void
+Line Numbers: 20 22 26 30 32 
+
+Identifier: loadArray
+Line Numbers: 20 41 
+
+Identifier: list
+Line Numbers: 20 22 24 26 28 30 32 38 41 46 50 54 58 61 
+
+Identifier: numOfBooksPtr
+Line Numbers: 20 
+
+Identifier: printArray
+Line Numbers: 22 46 54 
+
+Identifier: numOfBooks
+Line Numbers: 22 24 26 28 30 32 37 41 46 50 54 58 61 
+
+Identifier: Count
+Line Numbers: 24 
+
+Identifier: targetPrice
+Line Numbers: 24 
+
+Identifier: Sort
+Line Numbers: 26 50 
+
+Identifier: FindPrice
+Line Numbers: 28 
+
+Identifier: targetCode
+Line Numbers: 28 
+
+Identifier: PriceSearch
+Line Numbers: 30 58 
+
+Identifier: CodeSearch
+Line Numbers: 32 61 
+
+Identifier: main
+Line Numbers: 35 
+
+Identifier: printf
+Line Numbers: 42 45 47 53 55 
+
+Identifier: return
+Line Numbers: 63 
+
