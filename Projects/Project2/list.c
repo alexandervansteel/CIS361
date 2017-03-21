@@ -1,6 +1,6 @@
 /*
  * Alexander Vansteel
- * Header for queue type and queue functions
+ *
  */
 
 #include "list.h"
@@ -21,7 +21,7 @@ void deleteList(List *list){
   while(list->head != NULL){
     temp = list->head;
     list->head = list->head->nextNode;
-    deleteQueue(temp->queue);
+//    deleteQueue(temp->queue);
     free(temp);
   }
   free(list);
@@ -38,14 +38,13 @@ void add(char *strr, int line, List *list){
     newNode = (ListNode*) malloc(sizeof(ListNode));
     list->head = newNode;
     newNode->identifier = str;
-    newNode->queue = newQueue();
-    enqueue(line, newNode->queue);
+    newNode->count = 1;
   } else {
     while (1){
       //found a matching identifier
       if (strcmp(temp->identifier,str) == 0){
-        enqueue(line, temp->queue);
-        return; //return after enqueuing
+          temp->count++;
+        return;
       }
       if (temp->nextNode == NULL)//no matching identifiers
         break;
@@ -56,9 +55,8 @@ void add(char *strr, int line, List *list){
     newNode = (ListNode*) malloc(sizeof(ListNode));
     temp->nextNode = newNode;
     newNode->identifier = str;
-    newNode->queue = newQueue();
+    newNode->count = 1;
     newNode->nextNode = NULL;
-    enqueue(line, newNode->queue);
   }
 }
 
@@ -68,12 +66,9 @@ void print(List *list, FILE *fout){
   } else {
     ListNode *current = list->head;
     while (current != NULL){
-      fprintf(fout,"Identifier: %s\n", current->identifier);
-      fprintf(fout,"Line Numbers: ");
-      while((current->queue->head != NULL)){
-        fprintf(fout,"%d ",dequeue(current->queue));
-      }
-      fprintf(fout,"\n\n");
+      fprintf(fout,"Identifier: \t%s\n", current->identifier);
+      fprintf(fout, "Count: \t\t\t\t%d\n", current->count);
+      fprintf(fout,"\n");
       current = current->nextNode;
     }
   }

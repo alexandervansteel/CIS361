@@ -1,10 +1,9 @@
 /*
  * Alexander Vansteel
- * Project 2 implementation
+ * Project 2
  */
 
 #include "list.h"
-#include "queue.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
