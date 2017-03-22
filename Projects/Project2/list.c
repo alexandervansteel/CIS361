@@ -21,7 +21,6 @@ void deleteList(List *list){
   while(list->head != NULL){
     temp = list->head;
     list->head = list->head->nextNode;
-//    deleteQueue(temp->queue);
     free(temp);
   }
   free(list);
