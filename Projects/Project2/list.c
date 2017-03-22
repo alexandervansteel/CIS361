@@ -30,6 +30,7 @@ void deleteList(List *list){
 //check for existing identifier or add a new node
 void add(char *strr, int line, List *list){
   ListNode *temp =  list->head;
+  ListNode *prev = list->head;
   ListNode *newNode;
   char *str = (char *) malloc(sizeof(char)*128);
   strcpy(str, strr);
@@ -44,19 +45,25 @@ void add(char *strr, int line, List *list){
       //found a matching identifier
       if (strcmp(temp->identifier,str) == 0){
           temp->count++;
+          prev->nextNode = temp->nextNode;
+          temp->nextNode = list->head;
+          list->head = temp;
         return;
       }
-      if (temp->nextNode == NULL)//no matching identifiers
+      if (temp->nextNode == NULL){//no matching identifiers
         break;
+      }
+      prev = temp;
       temp = temp->nextNode;
     }
 
     //no matching identifiers section
     newNode = (ListNode*) malloc(sizeof(ListNode));
-    temp->nextNode = newNode;
     newNode->identifier = str;
     newNode->count = 1;
-    newNode->nextNode = NULL;
+    newNode->nextNode = list->head;
+    list->head = newNode;
+    return;
   }
 }
 
