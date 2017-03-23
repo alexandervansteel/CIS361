@@ -8,7 +8,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Queue Function Prototypes
 List* newList(){
   List *list = (List*) malloc(sizeof(List));
   list->head = NULL;
@@ -35,10 +34,12 @@ void add(char *strr, int line, List *list){
   strcpy(str, strr);
 
   if (list->head == NULL){
+    //getchar();
     newNode = (ListNode*) malloc(sizeof(ListNode));
     list->head = newNode;
     newNode->identifier = str;
     newNode->count = 1;
+    newNode->nextNode = NULL;
   } else {
     while (1){
       //found a matching identifier
@@ -49,10 +50,9 @@ void add(char *strr, int line, List *list){
           list->head = temp;
         return;
       }
-      if (temp->nextNode == NULL){//no matching identifiers
-        break;
-      }
       prev = temp;
+      if (temp->nextNode == NULL)
+        break;
       temp = temp->nextNode;
     }
 
