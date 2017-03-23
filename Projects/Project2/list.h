@@ -21,7 +21,7 @@ typedef struct ListStruct {
 
 List * newList();
 void deleteList(List *list);
-void add(char *str, int line, List *list);
+void add(char *str, List *list);
 void print(List *list, FILE *fout);
 
 #endif

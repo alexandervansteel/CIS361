@@ -26,7 +26,7 @@ void deleteList(List *list){
 }
 
 //check for existing identifier or add a new node
-void add(char *strr, int line, List *list){
+void add(char *strr, List *list){
   ListNode *temp =  list->head;
   ListNode *prev = list->head;
   ListNode *newNode;

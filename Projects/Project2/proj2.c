@@ -20,8 +20,8 @@
 #define ASTERISK 7
 
 void appendChar(char* str, char c);
-void handleChar(char* str, char c, int* state, int lineNumber, List *list);
-void stateAlphaNumeric(char* str, char c, int* state, int lineNumber, List *list);
+void handleChar(char* str, char c, int* state, List *list);
+void stateAlphaNumeric(char* str, char c, int* state, List *list);
 void stateSpecial(char* str, char c, int* state);
 void stateDoubleQuote(char c, int* state);
 void stateSingleQuote(char c, int* state);
@@ -34,7 +34,6 @@ int main(int argc, char* argv[]){
   char strRead[MAX_READ_LENGTH];
   strRead[0] = '\0';
   char charRead = ';';
-  int lineNumber = 1;
   int state = SPECIAL;
   List *list = newList();
 
@@ -55,13 +54,12 @@ int main(int argc, char* argv[]){
 
     if (charRead == '\n'){   //keeping track of line number
       if(state == ALPHANUMERIC)
-      add(strRead, lineNumber, list);
+      add(strRead, list);
       if(state != BLOCKCOMMENT)
       state = SPECIAL;
-      lineNumber++;
 
     } else {
-      handleChar(strRead, charRead, &state, lineNumber, list);
+      handleChar(strRead, charRead, &state, list);
     }
   }
 
@@ -81,10 +79,10 @@ void appendChar(char* str, char c){
 }
 
 //handling the character read based on the current state helper function
-void handleChar(char* strRead, char charRead, int* state, int lineNumber, List *list){
+void handleChar(char* strRead, char charRead, int* state, List *list){
 
   if (*state == ALPHANUMERIC){
-    stateAlphaNumeric(strRead, charRead, state, lineNumber, list);
+    stateAlphaNumeric(strRead, charRead, state, list);
   } else if (*state == SPECIAL){
     stateSpecial(strRead, charRead, state);
   } else if (*state == DOUBLEQUOTE) {
@@ -101,12 +99,12 @@ void handleChar(char* strRead, char charRead, int* state, int lineNumber, List *
 }
 
 //state helper functions
-void stateAlphaNumeric(char* strRead, char charRead, int* state, int lineNumber, List *list) {
+void stateAlphaNumeric(char* strRead, char charRead, int* state, List *list) {
   if (isalpha(charRead) || isdigit(charRead)){//append character to current identifier
     appendChar(strRead, charRead);
     *state = ALPHANUMERIC;
   } else {                     //add identifier to list
-    add(strRead, lineNumber, list);
+    add(strRead, list);
     if (charRead == '\''){
       *state = SINGLEQUOTE;
     } else if (charRead == '\"'){
