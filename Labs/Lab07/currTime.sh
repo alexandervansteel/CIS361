@@ -1,0 +1,3 @@
+#!/bin/bash
+currTime=$(date +%r)
+echo "Current Time is: $currTime"
