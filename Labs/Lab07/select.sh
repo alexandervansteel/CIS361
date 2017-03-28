@@ -1,4 +1,4 @@
 #!/bin/bash
-for f in *; do
+while read f; do
 	[[ -d "$f" ]] || echo "$f";
 done
